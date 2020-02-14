@@ -124,7 +124,7 @@ public class Main {
 				}
 				System.out.println("10 самых повторяющихся слов:");
 				int limit2 = 0;
-				Map<String, Integer> sortedWords = countSignsHashMap
+				Map<String, Integer> sortedWords = countWordsHashMap
 						.entrySet()
 						.stream()
 						.sorted(Collections.reverseOrder(Map.Entry.comparingByValue()))
