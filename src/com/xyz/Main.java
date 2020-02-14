@@ -57,18 +57,18 @@ public class Main {
 				while (wordsMatcher.find()) {
 					words++;
 					String[] words = wordsMatcher.group().split(" ");
-					for (int i = 0; i < words.length; i++) {
-						if (!countWordsHashMap.containsKey(words[i])) countWordsHashMap.put(words[i], 1);
-						else countWordsHashMap.put(words[i], countWordsHashMap.get(words[i])+1);
+					for (String word : words) {
+						if (!countWordsHashMap.containsKey(word)) countWordsHashMap.put(word, 1);
+						else countWordsHashMap.put(word, countWordsHashMap.get(word) + 1);
 					}
 				}
 
 				while (signsMatcher.find()) {
 					signs++;
 					String[] chars = signsMatcher.group().split(" ");
-					for (int i = 0; i < chars.length; i++) {
-						if (!countSignsHashMap.containsKey(chars[i])) countSignsHashMap.put(chars[i], 1);
-						else countSignsHashMap.put(chars[i], countSignsHashMap.get(chars[i]) + 1);
+					for (String aChar : chars) {
+						if (!countSignsHashMap.containsKey(aChar)) countSignsHashMap.put(aChar, 1);
+						else countSignsHashMap.put(aChar, countSignsHashMap.get(aChar) + 1);
 					}
 				}
 
