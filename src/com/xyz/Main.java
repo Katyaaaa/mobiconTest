@@ -25,7 +25,7 @@ public class Main {
 			if (args.length == 1) {
 				options = "mv";
 				file = args[0];
-			}else {
+			} else {
 				options = args[0];
 				file = args[1];
 			}
@@ -42,8 +42,6 @@ public class Main {
 
 		countSignsHashMap = new HashMap<>();
 		countWordsHashMap = new HashMap<>();
-
-		System.out.println(options);
 
 
 		try (BufferedReader reader = new BufferedReader(new FileReader(getFileName(file)))){
@@ -76,6 +74,7 @@ public class Main {
 		} catch (IOException e){
 			e.printStackTrace();
 		}
+
 		switch (options){
 			case "m" : {
 				System.out.println("Кол-во символов = "+signs);
@@ -95,25 +94,15 @@ public class Main {
 				System.out.println("Кол-во слов = "+words);
 				System.out.println("10 самых повторяющихся символов:");
 				int limit1 = 0;
-				Map<String, Integer> sortedSymbols = countSignsHashMap
-						.entrySet()
-						.stream()
-						.sorted(Collections.reverseOrder(Map.Entry.comparingByValue()))
-						.collect(toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e2,
-								LinkedHashMap::new));
-				for (Map.Entry<String, Integer> entry : sortedSymbols.entrySet()) {
+				Map<String, Integer> sortedSigns = sort(countSignsHashMap);
+				for (Map.Entry<String, Integer> entry : sortedSigns.entrySet()) {
 					if (limit1==10) break;
 					System.out.println(entry.getKey()+ ": "+entry.getValue());
 					limit1++;
 				}
 				System.out.println("10 самых повторяющихся слов:");
 				int limit2 = 0;
-				Map<String, Integer> sortedWords = countWordsHashMap
-						.entrySet()
-						.stream()
-						.sorted(Collections.reverseOrder(Map.Entry.comparingByValue()))
-						.collect(toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e2,
-								LinkedHashMap::new));
+				Map<String, Integer> sortedWords = sort(countWordsHashMap);
 				for (Map.Entry<String, Integer> entry : sortedWords.entrySet()) {
 					if (limit2==10) break;
 					System.out.println(entry.getKey()+ ": "+entry.getValue());
@@ -125,12 +114,7 @@ public class Main {
 				System.out.println("Кол-во слов = "+words);
 				System.out.println("10 самых повторяющихся слов:");
 				int limit = 0;
-				Map<String, Integer> sorted = countWordsHashMap
-						.entrySet()
-						.stream()
-						.sorted(Collections.reverseOrder(Map.Entry.comparingByValue()))
-						.collect(toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e2,
-								LinkedHashMap::new));
+				Map<String, Integer> sorted = sort(countWordsHashMap);
 				for (Map.Entry<String, Integer> entry : sorted.entrySet()) {
 					if (limit==10) break;
 					System.out.println(entry.getKey()+ ": "+entry.getValue());
@@ -142,12 +126,7 @@ public class Main {
 				System.out.println("Кол-во символов = "+signs);
 				System.out.println("10 самых повторяющихся символов:");
 				int limit1 = 0;
-				Map<String, Integer> sorted = countSignsHashMap
-						.entrySet()
-						.stream()
-						.sorted(Collections.reverseOrder(Map.Entry.comparingByValue()))
-						.collect(toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e2,
-								LinkedHashMap::new));
+				Map<String, Integer> sorted = sort(countSignsHashMap);
 				for (Map.Entry<String, Integer> entry : sorted.entrySet()) {
 					if (limit1==10) break;
 					System.out.println(entry.getKey()+ ": "+entry.getValue());
@@ -163,4 +142,15 @@ public class Main {
 		String src = System.getProperty("user.dir") + File.separator + "src" + File.separator;
 		return src + name;
 	}
+
+	private static Map<String, Integer> sort(HashMap<String, Integer> unSorted) {
+		return unSorted
+				.entrySet()
+				.stream()
+				.sorted(Collections.reverseOrder(Map.Entry.comparingByValue()))
+				.collect(toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e2,
+						LinkedHashMap::new));
+	}
+
+
 }
