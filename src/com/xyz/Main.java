@@ -1,5 +1,7 @@
 package com.xyz;
 
+import com.sun.xml.internal.ws.api.model.wsdl.WSDLOutput;
+
 import java.io.*;
 import java.util.*;
 import java.util.regex.Matcher;
@@ -11,10 +13,9 @@ public class Main {
 
 	static String options;
 	static String file;
+
 	static int words;
 	static int signs;
-	static HashMap<String, Integer> countWordsHashMap;
-	static HashMap<String, Integer> countSignsHashMap;
 
 
 	public static void main(String[] args) {
@@ -40,8 +41,8 @@ public class Main {
 				else options = "mv";
 			}
 
-		countSignsHashMap = new HashMap<>();
-		countWordsHashMap = new HashMap<>();
+		HashMap<String, Integer> countWordsHashMap = new HashMap<>();
+		HashMap<String, Integer> countSignsHashMap = new HashMap<>();
 
 
 		try (BufferedReader reader = new BufferedReader(new FileReader(getFileName(file)))){
@@ -93,45 +94,25 @@ public class Main {
 				System.out.println("Кол-во символов = "+signs);
 				System.out.println("Кол-во слов = "+words);
 				System.out.println("10 самых повторяющихся символов:");
-				int limit1 = 0;
 				Map<String, Integer> sortedSigns = sort(countSignsHashMap);
-				for (Map.Entry<String, Integer> entry : sortedSigns.entrySet()) {
-					if (limit1==10) break;
-					System.out.println(entry.getKey()+ ": "+entry.getValue());
-					limit1++;
-				}
+				sortedSigns.entrySet().stream().limit(10).forEach(System.out::println);
 				System.out.println("10 самых повторяющихся слов:");
-				int limit2 = 0;
 				Map<String, Integer> sortedWords = sort(countWordsHashMap);
-				for (Map.Entry<String, Integer> entry : sortedWords.entrySet()) {
-					if (limit2==10) break;
-					System.out.println(entry.getKey()+ ": "+entry.getValue());
-					limit2++;
-				}
+				sortedWords.entrySet().stream().limit(10).forEach(System.out::println);
 				break;
 			}
 			case "Xv" : {
 				System.out.println("Кол-во слов = "+words);
 				System.out.println("10 самых повторяющихся слов:");
-				int limit = 0;
 				Map<String, Integer> sorted = sort(countWordsHashMap);
-				for (Map.Entry<String, Integer> entry : sorted.entrySet()) {
-					if (limit==10) break;
-					System.out.println(entry.getKey()+ ": "+entry.getValue());
-					limit++;
-				}
+				sorted.entrySet().stream().limit(10).forEach(System.out::println);
 				break;
 			}
 			case "Xm" : {
 				System.out.println("Кол-во символов = "+signs);
 				System.out.println("10 самых повторяющихся символов:");
-				int limit1 = 0;
 				Map<String, Integer> sorted = sort(countSignsHashMap);
-				for (Map.Entry<String, Integer> entry : sorted.entrySet()) {
-					if (limit1==10) break;
-					System.out.println(entry.getKey()+ ": "+entry.getValue());
-					limit1++;
-				}
+				sorted.entrySet().stream().limit(10).forEach(System.out::println);
 				break;
 			}
 		}
