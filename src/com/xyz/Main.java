@@ -1,7 +1,5 @@
 package com.xyz;
 
-import com.sun.xml.internal.ws.api.model.wsdl.WSDLOutput;
-
 import java.io.*;
 import java.util.*;
 import java.util.regex.Matcher;
@@ -53,7 +51,7 @@ public class Main {
 				Matcher wordsMatcher = wordsPattern.matcher(s);
 				Matcher signsMatcher = signsPattern.matcher(s);
 
-				while (wordsMatcher.find()) {
+				while (wordsPattern.matcher(s).find()) {
 					words++;
 					String[] words = wordsMatcher.group().split(" ");
 					for (String word : words) {
@@ -94,29 +92,24 @@ public class Main {
 				System.out.println("Кол-во символов = "+signs);
 				System.out.println("Кол-во слов = "+words);
 				System.out.println("10 самых повторяющихся символов:");
-				Map<String, Integer> sortedSigns = sort(countSignsHashMap);
-				sortedSigns.entrySet().stream().limit(10).forEach(System.out::println);
+				sortAndPrint(countSignsHashMap);
 				System.out.println("10 самых повторяющихся слов:");
-				Map<String, Integer> sortedWords = sort(countWordsHashMap);
-				sortedWords.entrySet().stream().limit(10).forEach(System.out::println);
+				sortAndPrint(countWordsHashMap);
 				break;
 			}
 			case "Xv" : {
 				System.out.println("Кол-во слов = "+words);
 				System.out.println("10 самых повторяющихся слов:");
-				Map<String, Integer> sorted = sort(countWordsHashMap);
-				sorted.entrySet().stream().limit(10).forEach(System.out::println);
+				sortAndPrint(countWordsHashMap);
 				break;
 			}
 			case "Xm" : {
 				System.out.println("Кол-во символов = "+signs);
 				System.out.println("10 самых повторяющихся символов:");
-				Map<String, Integer> sorted = sort(countSignsHashMap);
-				sorted.entrySet().stream().limit(10).forEach(System.out::println);
+				sortAndPrint(countSignsHashMap);
 				break;
 			}
 		}
-
 	}
 
 	private static String getFileName(String name) {
@@ -124,13 +117,12 @@ public class Main {
 		return src + name;
 	}
 
-	private static Map<String, Integer> sort(HashMap<String, Integer> unSorted) {
-		return unSorted
-				.entrySet()
+	private static void sortAndPrint(HashMap<String, Integer> unSorted) {
+		unSorted.entrySet()
 				.stream()
 				.sorted(Collections.reverseOrder(Map.Entry.comparingByValue()))
 				.collect(toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e2,
-						LinkedHashMap::new));
+						LinkedHashMap::new)).entrySet().stream().limit(10).forEach(System.out::println);
 	}
 
 
