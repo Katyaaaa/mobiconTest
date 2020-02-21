@@ -4,7 +4,6 @@ import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
-import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import static java.util.stream.Collectors.toMap;
@@ -45,17 +44,18 @@ public class Main {
 		HashMap<String, Integer> countSignsHashMap = new HashMap<>();
 
 		try (Stream<String> lineStream = Files.lines(Paths.get(getFileName(file)))) {
-			String text = lineStream.collect(Collectors.toList()).get(0);
-			for (String word : text.split("[^А-Яа-яËё]")) {
-				if (word.length() > 0) {
-					words++;
-					countWordsHashMap.put(word, countWordsHashMap.getOrDefault(word, 0) + 1);
+			lineStream.forEach(text -> {
+				for (String word : text.split("[^А-Яа-яËё]")) {
+					if (word.length() > 0) {
+						words++;
+						countWordsHashMap.put(word, countWordsHashMap.getOrDefault(word, 0) + 1);
+					}
 				}
-			}
-			for (Character ch : text.toCharArray()) {
+				for (Character ch : text.toCharArray()) {
 					signs++;
 					countSignsHashMap.put(ch.toString(), countSignsHashMap.getOrDefault(ch.toString(), 0) + 1);
-			}
+				}
+			});
 		} catch (IOException ignored) {
 		}
 
