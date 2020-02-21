@@ -1,9 +1,11 @@
 package com.xyz;
 
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.*;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import static java.util.stream.Collectors.toMap;
 
@@ -42,37 +44,21 @@ public class Main {
 		HashMap<String, Integer> countWordsHashMap = new HashMap<>();
 		HashMap<String, Integer> countSignsHashMap = new HashMap<>();
 
-
-		try (BufferedReader reader = new BufferedReader(new FileReader(getFileName(file)))){
-			while (reader.ready()) {
-				Pattern wordsPattern = Pattern.compile("[а-яА-ЯёЁ]+");
-				Pattern signsPattern = Pattern.compile(".");
-				String s = reader.readLine();
-				Matcher wordsMatcher = wordsPattern.matcher(s);
-				Matcher signsMatcher = signsPattern.matcher(s);
-
-				while (wordsPattern.matcher(s).find()) {
+		try (Stream<String> lineStream = Files.lines(Paths.get(getFileName(file)))) {
+			String text = lineStream.collect(Collectors.toList()).get(0);
+			for (String word : text.split("[^А-Яа-яËё]")) {
+				if (word.length() > 0) {
 					words++;
-					String[] words = wordsMatcher.group().split(" ");
-					for (String word : words) {
-						if (!countWordsHashMap.containsKey(word)) countWordsHashMap.put(word, 1);
-						else countWordsHashMap.put(word, countWordsHashMap.get(word) + 1);
-					}
+					countWordsHashMap.put(word, countWordsHashMap.getOrDefault(word, 0) + 1);
 				}
-
-				while (signsMatcher.find()) {
-					signs++;
-					String[] chars = signsMatcher.group().split(" ");
-					for (String aChar : chars) {
-						if (!countSignsHashMap.containsKey(aChar)) countSignsHashMap.put(aChar, 1);
-						else countSignsHashMap.put(aChar, countSignsHashMap.get(aChar) + 1);
-					}
-				}
-
 			}
-		} catch (IOException e){
-			e.printStackTrace();
+			for (Character ch : text.toCharArray()) {
+					signs++;
+					countSignsHashMap.put(ch.toString(), countSignsHashMap.getOrDefault(ch.toString(), 0) + 1);
+			}
+		} catch (IOException ignored) {
 		}
+
 
 		switch (options){
 			case "m" : {
@@ -124,6 +110,5 @@ public class Main {
 				.collect(toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e2,
 						LinkedHashMap::new)).entrySet().stream().limit(10).forEach(System.out::println);
 	}
-
 
 }

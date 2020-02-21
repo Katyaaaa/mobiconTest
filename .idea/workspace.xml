@@ -43,7 +43,7 @@
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.xyz.Main" />
       <module name="mobiconTest" />
-      <option name="PROGRAM_PARAMETERS" value="-Xm file.txt" />
+      <option name="PROGRAM_PARAMETERS" value="-Xmv file.txt" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.xyz.*" />
@@ -124,55 +124,55 @@
     <option name="LAST_COMMIT_MESSAGE" value="code review" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="338" y="90" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1582218456460">
+    <state x="338" y="90" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1582274754213">
       <screen x="0" y="23" width="1440" height="811" />
     </state>
-    <state x="338" y="90" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.811@0.23.1440.811" timestamp="1582218456460" />
+    <state x="338" y="90" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.811@0.23.1440.811" timestamp="1582274754213" />
     <state x="571" y="30" key="CommitChangelistDialog2" timestamp="1582219173233">
       <screen x="0" y="23" width="1440" height="811" />
     </state>
     <state x="571" y="8" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1581664832676" />
     <state x="571" y="30" key="CommitChangelistDialog2/0.23.1440.811@0.23.1440.811" timestamp="1582219173233" />
-    <state width="1138" height="158" key="GridCell.Tab.0.bottom" timestamp="1582219766299">
+    <state width="1206" height="134" key="GridCell.Tab.0.bottom" timestamp="1582274884955">
       <screen x="0" y="23" width="1440" height="811" />
     </state>
     <state width="1398" height="302" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1581613682278" />
-    <state width="1138" height="158" key="GridCell.Tab.0.bottom/0.23.1440.811@0.23.1440.811" timestamp="1582219766299" />
-    <state width="1138" height="158" key="GridCell.Tab.0.center" timestamp="1582219766297">
+    <state width="1206" height="134" key="GridCell.Tab.0.bottom/0.23.1440.811@0.23.1440.811" timestamp="1582274884955" />
+    <state width="1206" height="134" key="GridCell.Tab.0.center" timestamp="1582274884953">
       <screen x="0" y="23" width="1440" height="811" />
     </state>
     <state width="1398" height="302" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1581613682277" />
-    <state width="1138" height="158" key="GridCell.Tab.0.center/0.23.1440.811@0.23.1440.811" timestamp="1582219766297" />
-    <state width="1138" height="158" key="GridCell.Tab.0.left" timestamp="1582219766297">
+    <state width="1206" height="134" key="GridCell.Tab.0.center/0.23.1440.811@0.23.1440.811" timestamp="1582274884953" />
+    <state width="1206" height="134" key="GridCell.Tab.0.left" timestamp="1582274884952">
       <screen x="0" y="23" width="1440" height="811" />
     </state>
     <state width="1398" height="302" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1581613682276" />
-    <state width="1138" height="158" key="GridCell.Tab.0.left/0.23.1440.811@0.23.1440.811" timestamp="1582219766297" />
-    <state width="1138" height="158" key="GridCell.Tab.0.right" timestamp="1582219766298">
+    <state width="1206" height="134" key="GridCell.Tab.0.left/0.23.1440.811@0.23.1440.811" timestamp="1582274884952" />
+    <state width="1206" height="134" key="GridCell.Tab.0.right" timestamp="1582274884954">
       <screen x="0" y="23" width="1440" height="811" />
     </state>
     <state width="1398" height="302" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1581613682278" />
-    <state width="1138" height="158" key="GridCell.Tab.0.right/0.23.1440.811@0.23.1440.811" timestamp="1582219766298" />
-    <state width="1138" height="217" key="GridCell.Tab.1.bottom" timestamp="1581664845105">
+    <state width="1206" height="134" key="GridCell.Tab.0.right/0.23.1440.811@0.23.1440.811" timestamp="1582274884954" />
+    <state width="1206" height="217" key="GridCell.Tab.1.bottom" timestamp="1582274390636">
       <screen x="0" y="23" width="1440" height="811" />
     </state>
     <state width="1398" height="302" key="GridCell.Tab.1.bottom/0.0.1440.900@0.0.1440.900" timestamp="1581613682521" />
-    <state width="1138" height="217" key="GridCell.Tab.1.bottom/0.23.1440.811@0.23.1440.811" timestamp="1581664845105" />
-    <state width="1138" height="217" key="GridCell.Tab.1.center" timestamp="1581664845104">
+    <state width="1206" height="217" key="GridCell.Tab.1.bottom/0.23.1440.811@0.23.1440.811" timestamp="1582274390636" />
+    <state width="1206" height="217" key="GridCell.Tab.1.center" timestamp="1582274390636">
       <screen x="0" y="23" width="1440" height="811" />
     </state>
     <state width="1398" height="302" key="GridCell.Tab.1.center/0.0.1440.900@0.0.1440.900" timestamp="1581613682520" />
-    <state width="1138" height="217" key="GridCell.Tab.1.center/0.23.1440.811@0.23.1440.811" timestamp="1581664845104" />
-    <state width="1138" height="217" key="GridCell.Tab.1.left" timestamp="1581664845104">
+    <state width="1206" height="217" key="GridCell.Tab.1.center/0.23.1440.811@0.23.1440.811" timestamp="1582274390636" />
+    <state width="1206" height="217" key="GridCell.Tab.1.left" timestamp="1582274390635">
       <screen x="0" y="23" width="1440" height="811" />
     </state>
     <state width="1398" height="302" key="GridCell.Tab.1.left/0.0.1440.900@0.0.1440.900" timestamp="1581613682520" />
-    <state width="1138" height="217" key="GridCell.Tab.1.left/0.23.1440.811@0.23.1440.811" timestamp="1581664845104" />
-    <state width="1138" height="217" key="GridCell.Tab.1.right" timestamp="1581664845105">
+    <state width="1206" height="217" key="GridCell.Tab.1.left/0.23.1440.811@0.23.1440.811" timestamp="1582274390635" />
+    <state width="1206" height="217" key="GridCell.Tab.1.right" timestamp="1582274390636">
       <screen x="0" y="23" width="1440" height="811" />
     </state>
     <state width="1398" height="302" key="GridCell.Tab.1.right/0.0.1440.900@0.0.1440.900" timestamp="1581613682521" />
-    <state width="1138" height="217" key="GridCell.Tab.1.right/0.23.1440.811@0.23.1440.811" timestamp="1581664845105" />
+    <state width="1206" height="217" key="GridCell.Tab.1.right/0.23.1440.811@0.23.1440.811" timestamp="1582274390636" />
     <state x="548" y="168" key="Vcs.Push.Dialog.v2" timestamp="1582219181790">
       <screen x="0" y="23" width="1440" height="811" />
     </state>
@@ -184,8 +184,8 @@
       <map>
         <entry key="flags" value="0" />
         <entry key="mode" value="0" />
-        <entry key="regex" value="" />
-        <entry key="text" value="ааааааа ттттты мыфымы ыаук кккккк цуываааа йцйцукйб ааааааа цудададаззуц ааааааа" />
+        <entry key="regex" value="[^а-яА-ЯёЁ]+" />
+        <entry key="text" value="В подмосковной Лобне вместе с матерью живёт двадцатилетний Илья Горюнов. Илья — студент филологического факультета МГУ; мать Ильи, воспитавшая сына одна, учительница русского языка и литературы. Отмечая окончание сессии, действуя наперекор матери, Илья отправляется со своей девушкой Верой в московский клуб «Рай». Неожиданно в клуб врывается наркополиция ФСКН с рейдом: у Ильи и Веры с собой наркотиков не было, но Веру всё равно задерживает сотрудник в штатском Пётр Хазин. Илья пытается препятствовать задержанию Веры и оскорбляет задержавшего её Хазина: в отместку молодой офицер подбрасывает ему кокаин. В итоге Илью сажают в колонию на семь лет за якобы сбыт наркотиков. В 2019 году, отбыв весь срок, Илья возвращается в Лобню к матери, однако узнаёт, что она умерла от сердечного приступа незадолго до его возвращения. Он приезжает к бывшей девушке Вере, из-за которой оказался в тюрьме, но она отказывается с ним разговаривать; также Илья общается с бывшим лучшим другом Серёгой, но и с ним он чувствует отчуждение." />
       </map>
     </option>
   </component>
